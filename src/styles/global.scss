@@ -1,0 +1,95 @@
+@use "tailwindcss" as *;
+@use "src/styles/variables.scss" as *;
+
+//Classes
+html,
+body {
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+  "Noto Color Emoji";
+}
+
+//ids
+#__next {
+  @apply flex w-full h-full justify-center;
+}
+
+.bg-maximum-blue-green {
+  background-color: $maximumBlueGreen;
+}
+
+.bg-maya-blue {
+  background-color: $mayaBlue;
+}
+
+.bg-magnolia {
+  background-color: $magnolia;
+}
+
+.bg-dark-jungle-green {
+  background-color: $darkJungleGreen;
+}
+
+.bg-neon-blue {
+  background-color: $neonBlue;
+}
+
+.border-color-mbg {
+  border-color: $maximumBlueGreen;
+}
+
+.bg-maximum-blue-green {
+  background-color: $maximumBlueGreen;
+}
+
+.bg-maya-blue {
+  background-color: $mayaBlue;
+}
+
+.bg-magnolia {
+  background-color: $magnolia;
+}
+
+.bg-dark-jungle-green {
+  background-color: $darkJungleGreen;
+}
+
+.bg-neon-blue {
+  background-color: $neonBlue;
+}
+
+.border-color-mbg {
+  border-color: $maximumBlueGreen;
+}
+
+.text-maximum-blue-green {
+  color: $maximumBlueGreen;
+}
+
+.text-maya-blue {
+  color: $mayaBlue;
+}
+
+@mixin text-magnolia {
+  color: $magnolia;
+}
+
+.text-dark-jungle-green {
+  color: $darkJungleGreen;
+}
+
+.text-neon-blue {
+  background-color: $neonBlue;
+}
+
+.main-container {
+  @apply flex w-full h-full;
+  background-color: $primaryWhite;
+}

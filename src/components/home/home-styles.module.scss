@@ -1,0 +1,7 @@
+﻿@use "src/styles/variables.scss" as *;
+
+.main-container {
+  @apply flex w-full h-full;
+  background: linear-gradient(#e66465, #9198e5);
+  font-family: 'Anton', sans-serif;
+}

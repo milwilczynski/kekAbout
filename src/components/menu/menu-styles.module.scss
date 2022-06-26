@@ -1,0 +1,7 @@
+﻿@use "src/styles/variables.scss" as *;
+
+.menu-container {
+  @apply flex flex-col bg-transparent justify-center h-full;
+  color: #FFFFFF;
+  font-size: 5.6vh;
+}

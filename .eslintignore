@@ -1,0 +1,5 @@
+node_modules
+test
+__generated__
+tailwind.config.js
+.prettierrc
