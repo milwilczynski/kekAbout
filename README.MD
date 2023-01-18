@@ -1,12 +1,4 @@
-# vite-react-ts-airbnb-prettier-scss
+# KekAbout
 
-Pumped vite template
+App about Kek
 
-## Features
-
-- Prettier
-- React
-- Typescript
-- Eslint
-- AirBnb rules
-- Scss with typescript types
