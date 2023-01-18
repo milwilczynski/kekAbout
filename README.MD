@@ -1,14 +1,12 @@
-# Next.js - Typescript
+# vite-react-ts-airbnb-prettier-scss
 
-Core of this project is generated with [superplate](https://github.com/pankod/superplate).
+Pumped vite template
 
-# Featuring:
+## Features
 
-- typescript
-- airbnb rules
-- eslint/prettier
-- redux/rtk
-- tailwind
-- css-transition
-- jest
-- font-awesome
+- Prettier
+- React
+- Typescript
+- Eslint
+- AirBnb rules
+- Scss with typescript types
