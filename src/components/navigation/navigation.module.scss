@@ -5,17 +5,21 @@
     @apply flex flex-col w-fit justify-center items-center;
     font-family: 'Lato', serif;
 
-    &_icon {
-      @apply flex w-full p-10 bg-white h-full justify-center align-middle text-orange;
-      width: 3rem;
-      transition: all 0.5s;
+    &_row {
+      @apply flex flex-row bg-white text-center w-full;
 
-      svg {
-        @apply self-center;
+      &_icon {
+        @apply flex w-full p-10 pr-7 text-2xl h-full justify-center align-middle text-orange;
+        width: 3rem;
+        transition: all 0.5s;
+
+        svg {
+          @apply self-center;
+        }
       }
 
-      &:last-child {
-        @apply rounded-bl;
+      &_label {
+        @apply flex text-orange items-center font-bold pr-6 pt-2;
       }
 
       &:hover {
@@ -25,6 +29,14 @@
         svg {
           @apply text-white;
         }
+
+        .menu_holder_row_label {
+          @apply text-white;
+        }
+      }
+
+      &:last-child {
+        @apply rounded-bl;
       }
     }
   }
