@@ -8,26 +8,53 @@ import {
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
 import styles from './navigation.module.scss';
+import config from '~/utils/config';
 
 interface SocialsProps {}
 
 export function Socials(props: SocialsProps) {
+  function redirect(url: string): void {
+    console.log('-> url', url);
+
+    window.open(url, '_blank');
+  }
+
   return (
     <section className={styles.socials_holder}>
       <div className={styles.socials_holder_socials}>
-        <div className={styles.socials_holder_socials_icon}>
+        <div
+          role="presentation"
+          className={styles.socials_holder_socials_icon}
+          onClick={() => redirect(config.socials.facebook)}
+        >
           <FontAwesomeIcon icon={faFacebookF} />
         </div>
-        <div className={styles.socials_holder_socials_icon}>
+        <div
+          role="presentation"
+          className={styles.socials_holder_socials_icon}
+          onClick={() => redirect(config.socials.linkedIn)}
+        >
           <FontAwesomeIcon icon={faLinkedinIn} />
         </div>
-        <div className={styles.socials_holder_socials_icon}>
+        <div
+          role="presentation"
+          className={styles.socials_holder_socials_icon}
+          onClick={() => redirect(config.socials.github)}
+        >
           <FontAwesomeIcon icon={faGithub} />
         </div>
-        <div className={styles.socials_holder_socials_icon}>
+        <div
+          role="presentation"
+          className={styles.socials_holder_socials_icon}
+          onClick={() => redirect(config.socials.twitter)}
+        >
           <FontAwesomeIcon icon={faTwitter} />
         </div>
-        <div className={styles.socials_holder_socials_icon}>
+        <div
+          role="presentation"
+          className={styles.socials_holder_socials_icon}
+          onClick={() => redirect(config.socials.discord)}
+        >
           <FontAwesomeIcon icon={faDiscord} />
         </div>
       </div>
