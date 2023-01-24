@@ -14,8 +14,6 @@ interface SocialsProps {}
 
 export function Socials(props: SocialsProps) {
   function redirect(url: string): void {
-    console.log('-> url', url);
-
     window.open(url, '_blank');
   }
 
