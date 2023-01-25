@@ -1,15 +1,15 @@
 import React from 'react';
 import styles from './navigation.module.scss';
-import { Socials } from '~/components/navigation/Socials';
+import { MenuSocials } from '~/components/navigation/MenuSocials';
 import { MainMenu } from '~/components/navigation/MainMenu';
 
-function Navigation() {
+const Navigation = () => {
   return (
     <section id={styles.navigation}>
       <MainMenu />
-      <Socials />
+      <MenuSocials />
     </section>
   );
-}
+};
 
 export default Navigation;

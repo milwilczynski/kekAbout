@@ -3,13 +3,27 @@
   //MAIN_MENU
   .menu_holder {
     @apply flex flex-col w-fit justify-center items-center;
-    font-family: 'Lato', serif;
+
+    &:hover {
+      @apply cursor-pointer rounded-bl;
+      transition: all 0.5s;
+
+      .menu_holder_row_icon {
+        @apply pr-6;
+      }
+
+      .menu_holder_row_label {
+        @apply pr-6;
+        width: 7.2rem;
+        transition: all 0.5s, color 1s;
+      }
+    }
 
     &_row {
       @apply flex flex-row bg-white text-center w-full;
 
       &_icon {
-        @apply flex w-full p-10 pr-7 text-2xl h-full justify-center align-middle text-orange;
+        @apply flex w-full p-10 text-2xl h-full justify-center align-middle text-orange;
         width: 3rem;
         transition: all 0.5s;
 
@@ -19,24 +33,24 @@
       }
 
       &_label {
-        @apply flex text-orange items-center font-bold pr-6 pt-2;
-      }
-
-      &:hover {
-        @apply bg-orange cursor-pointer;
+        @apply flex text-orange items-center font-bold w-0 pt-1;
+        white-space: nowrap;
+        font-size: 1.2rem;
         transition: all 0.5s;
-
-        svg {
-          @apply text-white;
-        }
-
-        .menu_holder_row_label {
-          @apply text-white;
-        }
       }
 
       &:last-child {
         @apply rounded-bl;
+      }
+
+      &:hover {
+        @apply bg-orange;
+        transition: all 0.5s;
+
+        .menu_holder_row_label,
+        svg {
+          @apply text-white;
+        }
       }
     }
   }
@@ -50,7 +64,6 @@
 
   .socials_holder {
     @apply flex-row-reverse flex w-fit justify-center items-center;
-    font-family: 'Lato', serif;
 
     &_socials {
       @apply flex flex-col w-full bg-orange rounded-bl;
@@ -86,5 +99,17 @@
         @apply cursor-pointer;
       }
     }
+  }
+}
+
+@-webkit-keyframes run {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 0;
   }
 }

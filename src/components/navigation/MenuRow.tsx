@@ -5,11 +5,30 @@ import styles from '~/components/navigation/navigation.module.scss';
 
 export interface MenuRowProps {
   icon: IconProp;
-  label: string;
+  isSocialsMenu?: boolean;
+  label?: string;
+  handleClick?: () => void;
 }
-export function MenuRow({ icon, label }: MenuRowProps) {
+
+export const MenuRow = ({
+  icon,
+  label,
+  handleClick,
+  isSocialsMenu = false,
+}: MenuRowProps) => {
+  if (isSocialsMenu) {
+    return (
+      <div
+        role="presentation"
+        className={styles.socials_holder_socials_icon}
+        onClick={handleClick}
+      >
+        <FontAwesomeIcon icon={icon} />
+      </div>
+    );
+  }
   return (
-    <div className={styles.menu_holder_row}>
+    <div role="presentation" className={styles.menu_holder_row}>
       <div className={styles.menu_holder_row_icon}>
         <FontAwesomeIcon icon={icon} />
       </div>
@@ -18,4 +37,4 @@ export function MenuRow({ icon, label }: MenuRowProps) {
       </div>
     </div>
   );
-}
+};
