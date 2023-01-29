@@ -1,5 +1,40 @@
 #navigation {
-  @apply flex flex-col items-end w-fit fixed right-0 top-0 w-fit my-0.5;
+  @apply flex flex-col items-end w-fit fixed right-0 top-0 w-fit my-0.5 h-full justify-between;
+
+  .menu_hold {
+    @apply flex flex-row text-orange cursor-pointer bg-white rounded-bl w-fit;
+
+    &_icon {
+      @apply flex flex-col w-5 text-orange justify-evenly items-end m-3 h-6;
+
+      hr {
+        @apply bg-orange;
+        width: 75%;
+        height: 3px;
+      }
+
+      hr:first-child {
+        width: 100%;
+        animation: moving 1s infinite;
+      }
+
+      hr:last-child {
+        width: 50%;
+      }
+    }
+
+    &_label {
+      @apply flex w-0;
+      transition: all 1s;
+    }
+
+    &:hover {
+      .menu_hold_label {
+        @apply w-full;
+      }
+    }
+  }
+
   //MAIN_MENU
   .menu_holder {
     @apply flex flex-col w-fit justify-center items-center;
@@ -14,7 +49,7 @@
 
       .menu_holder_row_label {
         @apply pr-6;
-        width: 7.2rem;
+        width: 6rem;
         transition: all 0.5s, color 1s;
       }
     }
@@ -23,7 +58,7 @@
       @apply flex flex-row bg-white text-center w-full;
 
       &_icon {
-        @apply flex w-full p-10 text-2xl h-full justify-center align-middle text-orange;
+        @apply flex w-full p-8 text-2xl h-full justify-center align-middle text-orange;
         width: 3rem;
         transition: all 0.5s;
 
@@ -35,7 +70,7 @@
       &_label {
         @apply flex text-orange items-center font-bold w-0 pt-1;
         white-space: nowrap;
-        font-size: 1.2rem;
+        font-size: 1rem;
         transition: all 0.5s;
       }
 
@@ -66,7 +101,7 @@
     @apply flex-row-reverse flex w-fit justify-center items-center;
 
     &_socials {
-      @apply flex flex-col w-full bg-orange rounded-bl;
+      @apply flex flex-col w-full bg-orange rounded-tl;
       height: 15rem;
 
       &_icon {
@@ -102,14 +137,14 @@
   }
 }
 
-@-webkit-keyframes run {
+@keyframes moving {
   0% {
-    left: 0;
+    width: 100%;
   }
   50% {
-    left: 100%;
+    width: 50%;
   }
   100% {
-    left: 0;
+    width: 100%;
   }
 }

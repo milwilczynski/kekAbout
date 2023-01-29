@@ -25,35 +25,30 @@ export const MenuSocials = ({ ...props }: SocialsProps) => {
           handleClick={() => {
             return redirect(config.socials.facebook);
           }}
-          isSocialsMenu
         />
         <MenuRow
           icon={faLinkedinIn}
           handleClick={() => {
             return redirect(config.socials.linkedIn);
           }}
-          isSocialsMenu
         />
         <MenuRow
           icon={faGithub}
           handleClick={() => {
             return redirect(config.socials.github);
           }}
-          isSocialsMenu
         />
         <MenuRow
           icon={faTwitter}
           handleClick={() => {
             return redirect(config.socials.twitter);
           }}
-          isSocialsMenu
         />
         <MenuRow
           icon={faDiscord}
           handleClick={() => {
             return redirect(config.socials.discord);
           }}
-          isSocialsMenu
         />
       </div>
     </section>

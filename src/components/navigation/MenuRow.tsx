@@ -5,18 +5,12 @@ import styles from '~/components/navigation/navigation.module.scss';
 
 export interface MenuRowProps {
   icon: IconProp;
-  isSocialsMenu?: boolean;
   label?: string;
   handleClick?: () => void;
 }
 
-export const MenuRow = ({
-  icon,
-  label,
-  handleClick,
-  isSocialsMenu = false,
-}: MenuRowProps) => {
-  if (isSocialsMenu) {
+export const MenuRow = ({ icon, label, handleClick }: MenuRowProps) => {
+  if (handleClick) {
     return (
       <div
         role="presentation"
