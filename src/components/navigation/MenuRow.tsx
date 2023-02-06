@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { motion } from 'framer-motion';
 import styles from '~/components/navigation/navigation.module.scss';
 
 export interface MenuRowProps {
@@ -12,13 +13,14 @@ export interface MenuRowProps {
 export const MenuRow = ({ icon, label, handleClick }: MenuRowProps) => {
   if (handleClick) {
     return (
-      <div
+      <motion.div
         role="presentation"
         className={styles.socials_holder_socials_icon}
         onClick={handleClick}
+        whileTap={{ scale: 0.9 }}
       >
         <FontAwesomeIcon icon={icon} />
-      </div>
+      </motion.div>
     );
   }
   return (
