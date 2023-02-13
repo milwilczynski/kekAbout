@@ -4,6 +4,7 @@
   .menu_hold {
     @apply flex flex-row text-orange cursor-pointer bg-white rounded-bl w-full p-3;
     user-select: none;
+    will-change: transform;
 
     &_icon {
       @apply flex flex-col w-6 text-orange justify-evenly items-end h-6;
@@ -71,26 +72,37 @@
       }
     }
   }
-}
 
-@keyframes moving {
-  0% {
-    width: 100%;
-  }
-  50% {
-    width: 50%;
-  }
-  100% {
-    width: 100%;
-  }
-}
+  .menu {
+    @apply flex flex-col bg-orange text-white  rounded-bl;
 
-.exit {
-  max-width: 0;
-  margin-left: 0;
-}
+    &:first-child {
+      @apply bg-white text-orange;
+    }
 
-.open {
-  max-width: 50px;
-  margin-left: 0.5rem;
+    &_rows {
+      @apply flex flex-col w-full justify-center text-justify pt-1 text-2xl;
+
+      div {
+        @apply px-10 py-1 justify-center items-center flex;
+        font-size: 1.25rem;
+        will-change: transform;
+        transition: all 1s;
+
+        &:hover {
+          @apply text-white bg-orange cursor-pointer rounded;
+          transition: all 1s;
+          scale: 0.9;
+        }
+      }
+    }
+
+    button {
+      @apply pt-3 text-white bg-orange rounded-bl;
+      &:hover {
+        @apply text-white bg-orange cursor-pointer;
+        transition: all 0.5s;
+      }
+    }
+  }
 }

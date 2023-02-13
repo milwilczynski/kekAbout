@@ -2,7 +2,9 @@ import React from 'react';
 import { motion, useAnimation, Variants } from 'framer-motion';
 import styles from '~/components/navigation/navigation.module.scss';
 
-interface MainMenuProps {}
+interface MainMenuProps {
+  handleClick: () => void;
+}
 
 const variants: Variants = {
   hover: {
@@ -17,21 +19,25 @@ const variants: Variants = {
   },
 };
 
-export const MainMenu = ({ ...props }: MainMenuProps) => {
+export const MainMenu = ({ handleClick }: MainMenuProps) => {
   const controls = useAnimation();
-  function handleMouseEnterControls() {
-    void controls.start('hover');
+
+  function handleMouseEnterControls(state: string) {
+    void controls.start(state);
   }
 
-  function handleMouseLeaveControls() {
-    void controls.start('initial');
-  }
   return (
     <motion.div
+      initial={false}
       className={styles.menu_hold}
-      onMouseEnter={handleMouseEnterControls}
-      onMouseLeave={handleMouseLeaveControls}
-      whileTap={{ scale: 0.9 }}
+      onMouseEnter={() => {
+        handleMouseEnterControls('hover');
+      }}
+      onMouseLeave={() => {
+        handleMouseEnterControls('initial');
+      }}
+      whileTap={{ scale: 1.1 }}
+      onClick={handleClick}
     >
       <div className={styles.menu_hold_icon}>
         <hr />
