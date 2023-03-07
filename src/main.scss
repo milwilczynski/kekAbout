@@ -1,7 +1,15 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
 #root {
   @apply flex w-full;
   color: $white;
   background-color: rgba(22, 20, 19, 0.9);
   height: 100vh;
   font-family: 'Lato', sans-serif;
+
+  section {
+    height: 100%;
+  }
 }

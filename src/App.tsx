@@ -1,15 +1,24 @@
-import React from 'react';
-import Navigation from '~/components/navigation';
-import styles from './app.module.scss';
+import React, { useRef } from 'react';
+import { IParallax } from '@react-spring/parallax';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import { AboutMe } from '~/pages/about-me';
+import { Portfolio } from '~/pages/portfolio';
+import { Home } from '~/pages/home';
 
 const App = () => {
+  const parallax = useRef<IParallax>(null);
+  const scroll = (to: number) => {
+    if (parallax.current) {
+      parallax.current.scrollTo(to);
+    }
+  };
+
   return (
-    <>
-      <div className={styles.bg} />
-      <div className={styles.bg + styles.bg_second} />
-      <div className={styles.bg + styles.bg_third} />
-      <Navigation />
-    </>
+    <PerfectScrollbar className="w-full h-full" autoHide={false}>
+      <Home />
+      <AboutMe />
+      <Portfolio />
+    </PerfectScrollbar>
   );
 };
 
