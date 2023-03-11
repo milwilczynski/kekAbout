@@ -2,14 +2,21 @@
   display: none;
 }
 
-#root {
-  @apply flex w-full;
-  color: $white;
-  background-color: rgba(22, 20, 19, 0.9);
+body {
+  margin: 0;
   height: 100vh;
-  font-family: 'Lato', sans-serif;
+  width: 100%;
+}
 
-  section {
-    height: 100%;
-  }
+#root {
+  color: $white;
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    180deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(58, 177, 180, 1) 50%,
+    rgba(255, 0, 26, 1) 100%
+  );
+  font-family: 'Lato', sans-serif;
+  height: 100%;
 }

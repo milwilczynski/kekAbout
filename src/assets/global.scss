@@ -9,3 +9,10 @@ $white: #fff;
 $yellow: #ffba08;
 $grey: #857e7b;
 $orange: #ec4e20;
+
+@mixin glossEffect {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}

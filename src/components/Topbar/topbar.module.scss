@@ -1,0 +1,8 @@
+#topbar {
+  @apply flex w-full justify-center py-1;
+  @include glossEffect;
+  top: 0;
+  left: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+}

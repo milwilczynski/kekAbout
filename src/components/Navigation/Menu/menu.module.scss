@@ -1,0 +1,24 @@
+.menu {
+  @apply flex flex-col justify-between box-border rounded ml-3 p-2;
+  @include glossEffect;
+  height: 65vh;
+  width: 5rem;
+  transition: all 1s;
+
+  &_close {
+    @apply h-fit;
+    transition: all 1s;
+  }
+}
+
+.icon {
+  @apply flex flex-col w-full p-2 items-center;
+
+  &:hover {
+    @apply cursor-pointer;
+  }
+
+  > div {
+    @apply flex justify-center;
+  }
+}

@@ -1,0 +1,20 @@
+.console {
+  @apply absolute flex flex-col rounded;
+  @include glossEffect;
+  min-width: 30%;
+  min-height: 200px;
+
+  &_bar {
+    @apply flex w-full items-center justify-center;
+    background: rgba(0, 0, 0, 0.8);
+    height: 2rem;
+
+    &_actions {
+      @apply flex flex-row;
+    }
+  }
+
+  &_container {
+    @apply flex h-full w-full;
+  }
+}
