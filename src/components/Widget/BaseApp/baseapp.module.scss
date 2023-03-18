@@ -1,4 +1,4 @@
-.console {
+.base_app {
   @apply absolute flex flex-col rounded;
   @include glossEffect;
   min-width: 30%;
