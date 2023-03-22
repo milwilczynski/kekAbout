@@ -1,13 +1,10 @@
 import React from 'react';
-import Navigation from '~/components/navigation';
-import styles from './app.module.scss';
+import { Navigation } from '~/components/navigation';
 
 const App = () => {
   return (
     <>
-      <div className={styles.bg} />
-      <div className={styles.bg + styles.bg_second} />
-      <div className={styles.bg + styles.bg_third} />
+      <div>ES</div>
       <Navigation />
     </>
   );
