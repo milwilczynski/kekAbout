@@ -1,59 +1,41 @@
 import React, { FC, PropsWithChildren, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import styles from './navigation.module.scss';
+import { MenuList } from '~/mocks/menuList';
 
-interface NavigationProps {}
+interface NavigationProps {
+  progressBar: React.ReactNode;
+}
 
-const menuList = [
-  {
-    id: 'host',
-    label: '.host()',
-  },
-  {
-    id: 'about',
-    label: '.about()',
-  },
-  {
-    id: 'portfolio',
-    label: '.portfolio()',
-  },
-  {
-    id: 'resume',
-    label: '.resume()',
-  },
-  {
-    id: 'email',
-    label: '.email()',
-  },
-];
-export const Navigation: FC<PropsWithChildren<NavigationProps>> = () => {
-  const [selected, setSelected] = useState<string>('host');
+export const Navigation: FC<PropsWithChildren<NavigationProps>> = ({
+  progressBar,
+}: NavigationProps) => {
+  const [selected, setSelected] = useState<number>(0);
 
   return (
     <section className={styles.navigation}>
-      <div className={styles.navigation_label}>
-        {'<<'} 1 / 3 {'>>'}
-      </div>
-      <div className={styles.navigation_btn_container}>
-        {menuList.map((menu) => {
-          return (
-            <button
-              type="button"
-              style={
-                { '--menu-items-count': menuList.length } as React.CSSProperties
-              }
-              key={menu.id}
-              className={`${styles.navigation_btn} ${
-                menu.id === selected ? styles.navigation_btn_selected : ''
-              }`}
-              onClick={() => {
-                return setSelected(menu.id);
-              }}
-            >
-              {menu.label}
-            </button>
-          );
-        })}
-      </div>
+      {progressBar}
+      <AnimatePresence>
+        <motion.div className={styles.navigation_btn_container}>
+          {MenuList.map((item) => {
+            return (
+              <motion.div
+                role="presentation"
+                className={`${styles.navigation_btn}`}
+                onClick={() => {
+                  setSelected(selected);
+                }}
+              >
+                <div>{item.label}</div>
+              </motion.div>
+            );
+          })}
+          <motion.div className={styles.navigation_label}>
+            <div>{'<<'}</div>
+            <div>{'>>'}</div>
+          </motion.div>
+        </motion.div>
+      </AnimatePresence>
     </section>
   );
 };

@@ -1,11 +1,28 @@
 import React from 'react';
+import { motion, useScroll, useSpring } from 'framer-motion';
+import styles from './app.module.scss';
 import { Navigation } from '~/components/navigation';
+import { Home } from '~/pages/home';
 
 const App = () => {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
   return (
     <>
-      <div>ES</div>
-      <Navigation />
+      <section className={styles.base}>
+        {[1, 2, 3, 4, 5].map((image) => {
+          return <Home />;
+        })}
+      </section>
+      <Navigation
+        progressBar={
+          <motion.div className={styles.progress} style={{ scaleX }} />
+        }
+      />
     </>
   );
 };

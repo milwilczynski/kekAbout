@@ -1,7 +1,26 @@
 #root {
   @apply flex w-full;
   color: $white;
-  background-color: rgba(22, 20, 19, 0.9);
+  background-color: rgba(22, 20, 19, 1);
   height: 100vh;
+  min-height: fit-content;
   font-family: 'Roboto Mono', sans-serif;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  overflow: overlay;
+  height: 5px;
+  width: 5px;
+  background: rgba(0, 0, 0, 1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fff;
+  -webkit-border-radius: 1ex;
+}
+
+::-webkit-scrollbar-corner {
+  background: #fff;
 }
