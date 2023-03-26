@@ -4,14 +4,16 @@
 @import 'tailwindcss/utilities';
 
 $black: #161413;
-//$white: #eff9f0;F9F7EF
+$dark-purple: #23001e;
+$purple: #4e0143;
+$dark-white: #edf2ef;
 $white: #fff;
 $yellow: #ffba08;
 $grey: #857e7b;
-$orange: #ec4e20;
+$orange: #f4a261;
+$seagreen: #20a39e;
 
 @mixin glass_background {
-  background: rgba(255, 255, 255, 0);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(4.9px);
   -webkit-backdrop-filter: blur(4.9px);

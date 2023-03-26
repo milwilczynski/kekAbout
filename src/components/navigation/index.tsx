@@ -20,6 +20,7 @@ export const Navigation: FC<PropsWithChildren<NavigationProps>> = ({
           {MenuList.map((item) => {
             return (
               <motion.div
+                key={item.id}
                 role="presentation"
                 className={`${styles.navigation_btn}`}
                 onClick={() => {

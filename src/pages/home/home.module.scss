@@ -1,8 +1,24 @@
 .home {
   @apply flex h-full w-full flex-row items-center justify-center;
+  background: rgba(22, 20, 19, 0.9) repeat;
 
   &_label {
-    @apply flex h-full text-white justify-start;
+    @apply absolute text-4xl font-bold;
+    color: $dark-white;
+    left: 2rem;
+    top: 2rem;
+
+    > span {
+      @apply text-2xl;
+    }
+
+    > span:last-child {
+      color: $yellow;
+    }
+
+    > span:first-child {
+      @apply text-6xl;
+    }
   }
 
   &_wrapper {
@@ -10,10 +26,25 @@
     height: 100%;
   }
 
+  &_img_wrapper {
+    @apply absolute flex flex-row rounded h-full w-full;
+    width: 40%;
+    right: 0;
+  }
+
+  &_img_border {
+    @apply absolute;
+    bottom: 0;
+    content: '';
+    width: 5px;
+    height: 100%;
+    background: rgba(255, 186, 8, 1);
+  }
+
   &_img {
     @apply absolute bg-cover rounded h-full w-full;
     content: '';
-    width: 40%;
+    width: calc(100% - 5px);
     right: 0;
     background-repeat: no-repeat;
     background-image: url('public/assets/concuter.jpg'),
@@ -21,14 +52,36 @@
     // background-color: rgba(255, 186, 8, 0.4);
     background-blend-mode: multiply;
     //filter: drop-shadow(0 0 5px #000);
+  }
 
-    &:before {
-      position: absolute;
-      left: -5px;
-      content: '';
-      width: 5px;
-      height: 100%;
-      background: rgba(255, 186, 8, 1);
+  &_animation {
+    @apply flex flex-row h-full w-full items-end;
+    padding-bottom: 10rem;
+    padding-left: 3rem;
+
+    &_underscore {
+      @apply text-yellow;
+    }
+
+    > div:first-child {
+      @apply flex flex-row rounded font-bold text-5xl p-4;
+      @include glass_background;
+
+      background: rgba(35, 0, 30, 0.3);
+      width: 10rem;
+      height: 6rem;
+
+      > div {
+        @apply relative bottom-0 right-0 mt-10 ml-5;
+        color: #20a39e;
+
+        > svg {
+          //width: 8rem;
+          filter: invert(6%) sepia(37%) saturate(5311%) hue-rotate(290deg)
+            brightness(82%) contrast(108%);
+          opacity: 0.5;
+        }
+      }
     }
   }
 }

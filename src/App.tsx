@@ -14,9 +14,7 @@ const App = () => {
   return (
     <>
       <section className={styles.base}>
-        {[1, 2, 3, 4, 5].map((image) => {
-          return <Home />;
-        })}
+        <Home />
       </section>
       <Navigation
         progressBar={
