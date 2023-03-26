@@ -31,10 +31,6 @@ export const Navigation: FC<PropsWithChildren<NavigationProps>> = ({
               </motion.div>
             );
           })}
-          <motion.div className={styles.navigation_label}>
-            <div>{'<<'}</div>
-            <div>{'>>'}</div>
-          </motion.div>
         </motion.div>
       </AnimatePresence>
     </section>
