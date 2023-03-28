@@ -1,24 +1,9 @@
 .home {
-  @apply flex h-full w-full flex-row items-center justify-center;
+  @apply flex w-full h-full flex-row items-center justify-center;
   background: rgba(22, 20, 19, 0.9) repeat;
 
   &_label {
-    @apply absolute text-4xl font-bold;
-    color: $dark-white;
-    left: 2rem;
-    top: 2rem;
-
-    > span {
-      @apply text-2xl;
-    }
-
-    > span:last-child {
-      color: $yellow;
-    }
-
-    > span:first-child {
-      @apply text-6xl;
-    }
+    @include section-label;
   }
 
   &_wrapper {
@@ -63,7 +48,7 @@
   }
 
   &_animation {
-    @apply flex flex-row h-full w-full items-end;
+    @apply absolute flex flex-row h-full w-full items-end;
     padding-bottom: 10rem;
     padding-left: 3rem;
 

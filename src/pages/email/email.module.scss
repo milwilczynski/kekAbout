@@ -1,0 +1,8 @@
+.email {
+  @apply flex w-full h-full;
+  background: rgba(22, 20, 19, 1);
+
+  &_label {
+    @include section-label;
+  }
+}
