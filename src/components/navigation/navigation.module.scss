@@ -1,46 +1,46 @@
 .navigation {
-  @apply flex flex-col w-full fixed bottom-0 left-0;
-  @include glass_background;
-  border: 0;
-  font-size: 0.7rem;
-  overflow: auto;
-
-  &_label {
-    @apply fixed justify-center items-center flex w-full h-full text-yellow -z-10;
-    width: 100vw;
-  }
-
-  &_btn_container {
-    @apply flex flex-row justify-between;
+    @apply flex flex-col w-full fixed bottom-0 left-0;
+    @include glass_background;
+    border: 0;
+    font-size: 0.7rem;
     overflow: auto;
-    height: 50px;
-  }
 
-  &_btn {
-    @apply flex break-keep p-4;
-    width: 100vw;
-    transition: 0.5s all;
-
-    &:hover {
-      @apply cursor-pointer text-yellow;
-      transition: 0.5s all;
+    &_label {
+        @apply fixed justify-center items-center flex w-full h-full text-yellow -z-10;
+        width: 100vw;
     }
 
-    &_next {
-      > div {
-        @apply mr-2;
-      }
+    &_btn_container {
+        @apply flex flex-row justify-between;
+        overflow: auto;
+        height: 50px;
     }
 
-    &_previous {
-      > div {
-        @apply ml-2;
-      }
-    }
+    &_btn {
+        @apply flex break-keep justify-center items-center  p-4;
+        width: 100vw;
+        transition: 0.5s all;
 
-    &_selected {
-      @apply flex text-yellow;
-      transition: 0.5s all;
+        &:hover {
+            @apply cursor-pointer text-yellow;
+            transition: 0.5s all;
+        }
+
+        &_next {
+            > div {
+                @apply mr-2;
+            }
+        }
+
+        &_previous {
+            > div {
+                @apply ml-2;
+            }
+        }
+
+        &_selected {
+            @apply flex text-yellow;
+            transition: 0.5s all;
+        }
     }
-  }
 }

@@ -1,11 +1,19 @@
 .console_wrapper {
-    @apply fixed flex-col flex h-full w-full items-center z-50;
+    @apply fixed flex-col flex h-[calc(100%-50px)] w-full z-50;
+
+    &_minimalized {
+        @apply justify-end items-start;
+    }
 }
 
 .window {
     @include glass_background;
-    @apply flex flex-col h-1/4 mt-5 w-10/12 rounded overflow-hidden box-border max-w-screen-lg;
+    @apply flex flex-col mt-5 rounded overflow-hidden box-border max-w-screen-lg;
     background: rgba(35, 0, 30, 0.3);
+
+    &_minimalized {
+        @apply h-[50px] w-fit min-w-[100px] text-[3px];
+    }
 
     &_bar {
         @apply flex flex-row w-full justify-between items-center;
@@ -29,19 +37,11 @@
                 border-radius: 50%;
 
                 &:first-child {
-                    @apply bg-green-400;
-                }
-
-                &:nth-child(2) {
                     @apply bg-amber-400;
                 }
 
-                &:last-child {
-                    @apply bg-red-400;
-                }
-
                 &:hover {
-                    @apply cursor-default;
+                    @apply cursor-pointer;
                 }
             }
         }
@@ -51,5 +51,22 @@
         @apply flex w-full h-full p-2;
         font-size: 0.8rem;
         border: 0;
+    }
+
+    &_minimalized {
+        &_underscore {
+            @apply text-yellow;
+        }
+
+        > div:first-child {
+            @apply flex flex-row rounded font-bold text-sm p-4 max-w-[50px];
+            @include glass_background;
+            background: rgba(35, 0, 30, 0.3);
+
+            > div {
+                @apply relative bottom-0 right-0 mt-10 ml-5;
+                color: #20a39e;
+            }
+        }
     }
 }
