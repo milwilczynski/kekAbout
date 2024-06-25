@@ -1,6 +1,6 @@
 import React, { FC, PropsWithChildren, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Underscore } from '~/components/Underscore';
+import { Underscore } from './Underscore';
 
 interface PageLabelProps {
     className: string;

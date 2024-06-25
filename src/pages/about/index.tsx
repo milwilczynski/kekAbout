@@ -1,6 +1,6 @@
 import React, { FC, PropsWithChildren } from 'react';
 import styles from './about.module.scss';
-import { PageLabel } from '~/components/PageLabel';
+import { PageLabel } from '~/components/label/PageLabel';
 
 interface AboutProps {}
 

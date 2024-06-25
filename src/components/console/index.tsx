@@ -1,16 +1,21 @@
-import React, { FC, PropsWithChildren, useRef } from 'react';
+import React, { FC, PropsWithChildren, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import styles from './console.module.scss';
 import { TextAnimator } from '../text-animator';
+import useScreenDimension from '~/hooks/useScreenDimension';
 
 interface ConsoleProps {
 }
 
 export const Console: FC<PropsWithChildren<ConsoleProps>> = () => {
     const ref = useRef(null);
+
+
     return (
-        <section className={styles.console_wrapper}>
-            <div
-                ref={ref}
+        <motion.div ref={ref}
+                    className={styles.console_wrapper}>
+            <motion.div
+                drag dragConstraints={ref} dragElastic={0.1} dragMomentum={false}
                 className={styles.window}
             >
                 <div className={styles.window_bar}>
@@ -23,7 +28,7 @@ export const Console: FC<PropsWithChildren<ConsoleProps>> = () => {
                     </div>
                 </div>
                 <div className={styles.window_section}><TextAnimator delay={2} text={'Inez Dobra Dupa ;)'} /></div>
-            </div>
-        </section>
+            </motion.div>
+        </motion.div>
     );
 };

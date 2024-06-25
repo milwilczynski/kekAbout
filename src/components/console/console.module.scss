@@ -1,10 +1,10 @@
 .console_wrapper {
-    @apply fixed flex-col flex h-1/4 w-full justify-center items-center z-50;
+    @apply fixed flex-col flex h-full w-full items-center z-50;
 }
 
 .window {
     @include glass_background;
-    @apply flex flex-col h-full mt-5 w-10/12 rounded overflow-hidden box-border;
+    @apply flex flex-col h-1/4 mt-5 w-10/12 rounded overflow-hidden box-border max-w-screen-lg;
     background: rgba(35, 0, 30, 0.3);
 
     &_bar {

@@ -1,7 +1,7 @@
 import React, { FC, PropsWithChildren, useRef } from 'react';
 import { motion } from 'framer-motion';
 import styles from './home.module.scss';
-import { PageLabel } from '~/components/PageLabel';
+import { PageLabel } from '~/components/label/PageLabel';
 
 interface HomeProps {
 }
