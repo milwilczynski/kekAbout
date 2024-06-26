@@ -2,13 +2,13 @@
     @apply fixed flex-col flex h-[calc(100%-50px)] w-[99%] ml-[0.5%] z-50;
 
     &_minimalized {
-        @apply justify-end items-start;
+        @apply items-start;
     }
 }
 
 .window {
     @include glass_background;
-    @apply flex flex-col mt-5 rounded overflow-hidden box-border max-w-screen-lg;
+    @apply flex flex-col mt-5 rounded overflow-hidden box-border h-[30%] w-[40%] max-w-screen-lg;
     background: rgba(35, 0, 30, 0.3);
 
     &_bar {

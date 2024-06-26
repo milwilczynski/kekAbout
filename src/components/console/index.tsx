@@ -1,5 +1,6 @@
 import type { FC, PropsWithChildren } from 'react'
 import React, { useRef, useState } from 'react'
+
 import {
   AnimatePresence,
   motion,
@@ -23,7 +24,7 @@ export const Console: FC<PropsWithChildren<ConsoleProps>> = () => {
   const parentRef = useRef<HTMLDivElement>(null)
   const consoleRef = useRef<HTMLDivElement>(null)
   const { height, width } = useScreenDimension()
-  const [windowPosition, setWindowPosition] = useState<(string | number)[]>([])
+  const [windowPosition, setWindowPosition] = useState<(string | number)[]>([width * 0.58, 0])
   const [minimalize, setMinimalize] = useState<boolean>(false)
   const variants = {
     minimalized: {
@@ -32,9 +33,11 @@ export const Console: FC<PropsWithChildren<ConsoleProps>> = () => {
       x: '1rem',
       y: height - 125,
     },
-    maximalized: {
+    maximized: {
       height: '30%',
       width: '40%',
+      x: windowPosition[0],
+      y: windowPosition[1],
     },
   }
 
@@ -55,17 +58,17 @@ export const Console: FC<PropsWithChildren<ConsoleProps>> = () => {
       className={`${styles.console_wrapper}`}
       ref={parentRef}
     >
-      <AnimatePresence>
+      <AnimatePresence initial presenceAffectsLayout mode="sync">
         {!minimalize
         && (
           <motion.div
             ref={consoleRef}
-            animate="maximalized"
+            animate="maximized"
             transition={{
               type: 'easeInOut',
             }}
             variants={variants}
-            drag={true}
+            drag
             dragConstraints={parentRef}
             dragElastic={1}
             dragMomentum={false}
