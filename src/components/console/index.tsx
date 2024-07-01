@@ -1,5 +1,5 @@
 import type { FC, PropsWithChildren } from 'react'
-import React, { useRef, useState } from 'react'
+import React, { useRef } from 'react'
 
 import {
   AnimatePresence,
@@ -8,24 +8,16 @@ import {
 import { TextAnimator } from '../text-animator'
 import styles from './console.module.scss'
 import useScreenDimension from '~/hooks/useScreenDimension'
+import { useConsoleContext } from '~/providers/contexts/console-context'
 
 interface ConsoleProps {
 }
 
-interface ConsoleInternalProps {
-
-}
-
-export const ConsoleMinimalized: FC<PropsWithChildren<ConsoleInternalProps>> = () => {
-  return <></>
-}
-
 export const Console: FC<PropsWithChildren<ConsoleProps>> = () => {
+  const terminal = useConsoleContext()
   const parentRef = useRef<HTMLDivElement>(null)
-  const consoleRef = useRef<HTMLDivElement>(null)
-  const { height, width } = useScreenDimension()
-  const [windowPosition, setWindowPosition] = useState<(string | number)[]>([width * 0.58, 0])
-  const [minimalize, setMinimalize] = useState<boolean>(false)
+  const { height } = useScreenDimension()
+
   const variants = {
     minimalized: {
       height: 50,
@@ -36,21 +28,9 @@ export const Console: FC<PropsWithChildren<ConsoleProps>> = () => {
     maximized: {
       height: '30%',
       width: '40%',
-      x: windowPosition[0],
-      y: windowPosition[1],
+      x: terminal.position.window.x,
+      y: terminal.position.window.y,
     },
-  }
-
-  const handleMinimalize = () => {
-    if (!minimalize) {
-      const { x, y } = consoleRef.current?.getBoundingClientRect()!
-      setWindowPosition([x, y])
-    }
-    else {
-      consoleRef.current!.draggable = true
-    }
-    // eslint-disable-next-line style/max-statements-per-line
-    setMinimalize((prevState) => { return !prevState })
   }
 
   return (
@@ -59,10 +39,10 @@ export const Console: FC<PropsWithChildren<ConsoleProps>> = () => {
       ref={parentRef}
     >
       <AnimatePresence initial presenceAffectsLayout mode="sync">
-        {!minimalize
+        {!terminal.position.isMinimalized
         && (
           <motion.div
-            ref={consoleRef}
+            ref={terminal.state.consoleRef}
             animate="maximized"
             transition={{
               type: 'easeInOut',
@@ -82,22 +62,22 @@ export const Console: FC<PropsWithChildren<ConsoleProps>> = () => {
               <div />
               <div className={styles.window_bar_title}>Terminal</div>
               <div className={styles.window_bar_wrapper}>
-                <button className={styles.window_bar_wrapper_btn} onClick={handleMinimalize} />
+                <button className={styles.window_bar_wrapper_btn} onClick={terminal.position.minimalize} />
               </div>
             </motion.div>
             <div className={styles.window_section}>
               <TextAnimator
                 delay={2}
-                text="Inez Dobra Dupa ;)"
+                text={terminal.state.text}
               />
             </div>
           </motion.div>
         )}
-        {minimalize
+        {terminal.position.isMinimalized
         && (
           <motion.div
             className={styles.window_minimalized}
-            onClick={handleMinimalize}
+            onClick={terminal.position.minimalize}
             animate="minimalized"
             variants={variants}
             transition={{

@@ -1,14 +1,35 @@
-import React, { useContext } from 'react';
+import React, { useContext } from 'react'
+import type { MotionValue } from 'framer-motion'
 
-interface ConsoleContextProps {
-
+interface ConsoleMainState {
+  text: string
+  doAction: (text: string, action: () => void) => void
+  consoleRef: React.RefObject<HTMLDivElement>
 }
 
-export const ConsoleContext = React.createContext<ConsoleContextProps>({});
+interface ConsolePositionProps {
+  window: { x: number, y: number }
+  isMinimalized: boolean
+  minimalize: () => void
+}
 
-export const useConsoleContext = () => {
-    const ctx = useContext(ConsoleContext);
-    if (!ctx) throw new Error('useConsoleContext must be used within ConsoleProvider');
+interface ConsoleAnimationProps {
+  play: (() => void) | undefined
+  displayText: MotionValue<string>
+}
 
-    return ctx;
-};
+interface ConsoleContextType {
+  state: ConsoleMainState
+  animation: ConsoleAnimationProps
+  position: ConsolePositionProps
+}
+
+export const ConsoleContext = React.createContext<ConsoleContextType | null>(null)
+
+export function useConsoleContext() {
+  const ctx = useContext(ConsoleContext)
+  if (!ctx)
+    throw new Error('useConsoleContext must be used within ConsoleProvider')
+
+  return ctx
+}
