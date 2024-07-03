@@ -66,10 +66,7 @@ export const Console: FC<PropsWithChildren<ConsoleProps>> = () => {
               </div>
             </motion.div>
             <div className={styles.window_section}>
-              <TextAnimator
-                delay={2}
-                text={terminal.state.text}
-              />
+              <TextAnimator />
             </div>
           </motion.div>
         )}

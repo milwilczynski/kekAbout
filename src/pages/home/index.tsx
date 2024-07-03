@@ -1,5 +1,4 @@
-import type { FC, PropsWithChildren } from 'react'
-import React, { useEffect } from 'react'
+import React, { forwardRef, useEffect } from 'react'
 import styles from './home.module.scss'
 import { PageLabel } from '~/components/label/PageLabel'
 import { useConsoleContext } from '~/providers/contexts/console-context'
@@ -7,7 +6,7 @@ import { useConsoleContext } from '~/providers/contexts/console-context'
 interface HomeProps {
 }
 
-export const Home: FC<PropsWithChildren<HomeProps>> = () => {
+export const Home = forwardRef((props, ref) => {
   const terminal = useConsoleContext()
 
   const log = () => {
@@ -24,4 +23,4 @@ export const Home: FC<PropsWithChildren<HomeProps>> = () => {
       <div className={styles.home_wrapper}>{/* <Console /> */}</div>
     </section>
   )
-}
+})

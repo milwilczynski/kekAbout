@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import styles from './app.module.scss'
 import { Console } from './components/console'
@@ -10,6 +10,7 @@ import { Resume } from '~/pages/resume'
 import { Email } from '~/pages/email'
 
 function App() {
+  const aboutRef = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -25,10 +26,16 @@ function App() {
         }
       />
       <section className={styles.base}>
+        <button onClick={() => {
+          aboutRef.current?.scrollIntoView({ behavior: 'smooth' })
+        }}
+        >
+          siema
+        </button>
         <Home />
         <About />
         <Portfolio />
-        <Resume />
+        <Resume ref={aboutRef} />
         <Email />
       </section>
     </>
