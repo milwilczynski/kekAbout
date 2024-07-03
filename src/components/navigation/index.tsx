@@ -1,31 +1,38 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { FC, PropsWithChildren, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import styles from './navigation.module.scss';
-import { MenuSocials } from '~/components/navigation/MenuSocials';
-import { MainMenu } from '~/components/navigation/MainMenu';
-import { Menu } from '~/components/navigation/Menu';
+import { MenuList } from '~/mocks/menuList';
 
-const Navigation = () => {
-  const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false);
+interface NavigationProps {
+  progressBar: React.ReactNode;
+}
 
-  const setMenu = () => {
-    setIsMenuVisible((state) => {
-      return !state;
-    });
-  };
+export const Navigation: FC<PropsWithChildren<NavigationProps>> = ({
+  progressBar,
+}: NavigationProps) => {
+  const [selected, setSelected] = useState<number>(0);
 
   return (
-    <section id={styles.navigation}>
-      <motion.div layout>
-        {isMenuVisible ? (
-          <Menu handleClick={setMenu} />
-        ) : (
-          <MainMenu handleClick={setMenu} />
-        )}
-      </motion.div>
-      <MenuSocials />
+    <section className={styles.navigation}>
+      {progressBar}
+      <AnimatePresence>
+        <motion.div className={styles.navigation_btn_container}>
+          {MenuList.map((item) => {
+            return (
+              <motion.div
+                key={item.id}
+                role="presentation"
+                className={`${styles.navigation_btn}`}
+                onClick={() => {
+                  setSelected(selected);
+                }}
+              >
+                <div>{item.label}</div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+      </AnimatePresence>
     </section>
   );
 };
-
-export default Navigation;

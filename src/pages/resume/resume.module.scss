@@ -1,0 +1,8 @@
+.resume {
+  @apply flex w-full h-full;
+  background: $dark-purple;
+
+  &_label {
+    @include section-label;
+  }
+}

@@ -1,0 +1,68 @@
+.console_wrapper {
+    @apply fixed flex-col flex h-[calc(100%-50px)] w-[99%] ml-[0.5%] z-50;
+
+    &_minimalized {
+        @apply items-start;
+    }
+}
+
+.window {
+    @include glass_background;
+    @apply flex flex-col mt-5 rounded overflow-hidden box-border h-[30%] w-[40%] max-w-screen-lg;
+    background: rgba(35, 0, 30, 0.3);
+
+    &_bar {
+        @apply flex flex-row w-full justify-between items-center;
+        background: rgba(0, 0, 0, 0.8);
+        height: 40px;
+
+        > div:first-child {
+            @apply flex-1;
+        }
+
+        &_title {
+            @apply flex flex-1 justify-center;
+            font-size: 0.8rem;
+        }
+
+        &_wrapper {
+            @apply flex flex-row flex-1 justify-end;
+
+            &_btn {
+                @apply flex bg-red-300 p-1.5 mx-2;
+                border-radius: 50%;
+
+                &:first-child {
+                    @apply bg-amber-400;
+                }
+
+                &:hover {
+                    @apply cursor-pointer;
+                }
+            }
+        }
+    }
+
+    &_section {
+        @apply flex w-full h-full p-2;
+        font-size: 0.8rem;
+        border: 0;
+    }
+
+    &_minimalized {
+        &_underscore {
+            @apply text-yellow;
+        }
+
+        > div:first-child {
+            @apply flex flex-row rounded font-bold text-sm p-4 max-w-[50px];
+            @include glass_background;
+            background: rgba(35, 0, 30, 0.3);
+
+            > div {
+                @apply relative bottom-0 right-0 mt-10 ml-5;
+                color: #20a39e;
+            }
+        }
+    }
+}

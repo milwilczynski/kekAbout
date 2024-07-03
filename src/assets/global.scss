@@ -4,8 +4,43 @@
 @import 'tailwindcss/utilities';
 
 $black: #161413;
-//$white: #eff9f0;F9F7EF
+$dark-purple: rgba(35, 0, 35, 0.3);
+$purple: #4e0143;
+$dark-white: #edf2ef;
 $white: #fff;
 $yellow: #ffba08;
 $grey: #857e7b;
-$orange: #ec4e20;
+$orange: #f4a261;
+$seagreen: #20a39e;
+
+@mixin glass_background {
+    // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.9px);
+    -webkit-backdrop-filter: blur(4.9px);
+    border: 1px solid rgba(226, 226, 226, 0.2);
+}
+
+@mixin section-label {
+    @apply flex self-start relative text-4xl font-bold;
+    color: $dark-white;
+    left: 3rem;
+    top: 3rem;
+
+    > span {
+        @apply flex self-end text-2xl;
+        color: $yellow;
+    }
+
+    > span:last-child {
+        color: $yellow;
+    }
+
+    > span:first-child {
+        @apply text-6xl;
+    }
+
+    > span:first-child,
+    span:nth-child(2) {
+        color: $dark-white;
+    }
+}

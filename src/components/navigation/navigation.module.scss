@@ -1,108 +1,46 @@
-#navigation {
-  @apply flex flex-col items-end w-fit fixed right-0 top-0 w-fit my-0.5 h-full justify-between;
-
-  .menu_hold {
-    @apply flex flex-row text-orange cursor-pointer bg-white rounded-bl w-full p-3;
-    user-select: none;
-    will-change: transform;
-
-    &_icon {
-      @apply flex flex-col w-6 text-orange justify-evenly items-end h-6;
-
-      hr {
-        @apply bg-orange;
-        width: 75%;
-        height: 2px;
-        //animation: moving 1s infinite;
-      }
-
-      hr:first-child {
-        width: 100%;
-      }
-
-      hr:last-child {
-        width: 50%;
-      }
-    }
+.navigation {
+    @apply flex flex-col w-full fixed bottom-0 left-0;
+    @include glass_background;
+    border: 0;
+    font-size: 0.7rem;
+    overflow: auto;
 
     &_label {
-      @apply flex items-center max-w-0;
-      span {
-        overflow: hidden;
-      }
+        @apply fixed justify-center items-center flex w-full h-full text-yellow -z-10;
+        width: 100vw;
     }
-  }
 
-  .socials_holder {
-    @apply flex-row-reverse flex w-fit justify-center items-center;
+    &_btn_container {
+        @apply flex flex-row justify-between;
+        overflow: auto;
+        height: 50px;
+    }
 
-    &_socials {
-      @apply flex flex-col w-full bg-orange rounded-tl;
-      height: 15rem;
-
-      &_icon {
-        @apply flex w-full h-full justify-center align-middle;
-        width: 3rem;
-        transition: all 0.5s;
-
-        svg {
-          @apply self-center;
-        }
-
-        &:last-child {
-          @apply rounded-b;
-        }
+    &_btn {
+        @apply flex break-keep justify-center items-center  p-4;
+        width: 100vw;
+        transition: 0.5s all;
 
         &:hover {
-          @apply bg-white cursor-pointer rounded;
-          scale: 0.9;
-          transition: all 0.75s;
-
-          svg {
-            @apply text-orange;
-          }
+            @apply cursor-pointer text-yellow;
+            transition: 0.5s all;
         }
-      }
-    }
 
-    &_toggle {
-      @apply mr-2;
-      &:hover {
-        @apply cursor-pointer;
-      }
-    }
-  }
-
-  .menu {
-    @apply flex flex-col bg-orange text-white  rounded-bl;
-
-    &:first-child {
-      @apply bg-white text-orange;
-    }
-
-    &_rows {
-      @apply flex flex-col w-full justify-center text-justify pt-1 text-2xl;
-
-      div {
-        @apply px-10 py-1 justify-center items-center flex;
-        font-size: 1.25rem;
-        will-change: transform;
-        transition: all 1s;
-
-        &:hover {
-          @apply text-white bg-orange cursor-pointer rounded;
-          transition: all 1s;
-          scale: 0.9;
+        &_next {
+            > div {
+                @apply mr-2;
+            }
         }
-      }
-    }
 
-    button {
-      @apply pt-3 text-white bg-orange rounded-bl;
-      &:hover {
-        @apply text-white bg-orange cursor-pointer;
-        transition: all 0.5s;
-      }
+        &_previous {
+            > div {
+                @apply ml-2;
+            }
+        }
+
+        &_selected {
+            @apply flex text-yellow;
+            transition: 0.5s all;
+        }
     }
-  }
 }
