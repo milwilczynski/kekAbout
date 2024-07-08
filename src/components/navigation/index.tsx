@@ -1,7 +1,7 @@
-import React, { FC, PropsWithChildren, useState } from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import styles from './navigation.module.scss';
-import { MenuList } from '~/mocks/menuList';
+import { useNavigationContext } from '~/providers/contexts/navigation-context';
 
 interface NavigationProps {
   progressBar: React.ReactNode;
@@ -10,22 +10,20 @@ interface NavigationProps {
 export const Navigation: FC<PropsWithChildren<NavigationProps>> = ({
   progressBar,
 }: NavigationProps) => {
-  const [selected, setSelected] = useState<number>(0);
+  const { navigation } = useNavigationContext();
 
   return (
     <section className={styles.navigation}>
       {progressBar}
       <AnimatePresence>
         <motion.div className={styles.navigation_btn_container}>
-          {MenuList.map((item) => {
+          {Object.values(navigation).map((item) => {
             return (
               <motion.div
                 key={item.id}
                 role="presentation"
                 className={`${styles.navigation_btn}`}
-                onClick={() => {
-                  setSelected(selected);
-                }}
+                onClick={item.action}
               >
                 <div>{item.label}</div>
               </motion.div>

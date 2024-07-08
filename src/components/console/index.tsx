@@ -1,22 +1,18 @@
-import type { FC, PropsWithChildren } from 'react'
-import React, { useRef } from 'react'
+import type { FC, PropsWithChildren } from 'react';
+import React, { useRef } from 'react';
 
-import {
-  AnimatePresence,
-  motion,
-} from 'framer-motion'
-import { TextAnimator } from '../text-animator'
-import styles from './console.module.scss'
-import useScreenDimension from '~/hooks/useScreenDimension'
-import { useConsoleContext } from '~/providers/contexts/console-context'
+import { AnimatePresence, motion } from 'framer-motion';
+import { TextAnimator } from '../text-animator';
+import styles from './console.module.scss';
+import useScreenDimension from '~/hooks/useScreenDimension';
+import { useConsoleContext } from '~/providers/contexts/console-context';
 
-interface ConsoleProps {
-}
+interface ConsoleProps {}
 
 export const Console: FC<PropsWithChildren<ConsoleProps>> = () => {
-  const terminal = useConsoleContext()
-  const parentRef = useRef<HTMLDivElement>(null)
-  const { height } = useScreenDimension()
+  const terminal = useConsoleContext();
+  const parentRef = useRef<HTMLDivElement>(null);
+  const { height } = useScreenDimension();
 
   const variants = {
     minimalized: {
@@ -31,16 +27,12 @@ export const Console: FC<PropsWithChildren<ConsoleProps>> = () => {
       x: terminal.position.window.x,
       y: terminal.position.window.y,
     },
-  }
+  };
 
   return (
-    <motion.div
-      className={`${styles.console_wrapper}`}
-      ref={parentRef}
-    >
+    <motion.div className={`${styles.console_wrapper}`} ref={parentRef}>
       <AnimatePresence initial presenceAffectsLayout mode="sync">
-        {!terminal.position.isMinimalized
-        && (
+        {!terminal.position.isMinimalized && (
           <motion.div
             ref={terminal.state.consoleRef}
             animate="maximized"
@@ -62,7 +54,10 @@ export const Console: FC<PropsWithChildren<ConsoleProps>> = () => {
               <div />
               <div className={styles.window_bar_title}>Terminal</div>
               <div className={styles.window_bar_wrapper}>
-                <button className={styles.window_bar_wrapper_btn} onClick={terminal.position.minimalize} />
+                <button
+                  className={styles.window_bar_wrapper_btn}
+                  onClick={terminal.position.minimalize}
+                />
               </div>
             </motion.div>
             <div className={styles.window_section}>
@@ -70,11 +65,10 @@ export const Console: FC<PropsWithChildren<ConsoleProps>> = () => {
             </div>
           </motion.div>
         )}
-        {terminal.position.isMinimalized
-        && (
+        {terminal.position.isMinimalized && (
           <motion.div
             className={styles.window_minimalized}
-            onClick={terminal.position.minimalize}
+            onClick={terminal.position.maximize}
             animate="minimalized"
             variants={variants}
             transition={{
@@ -101,5 +95,5 @@ export const Console: FC<PropsWithChildren<ConsoleProps>> = () => {
         )}
       </AnimatePresence>
     </motion.div>
-  )
-}
+  );
+};

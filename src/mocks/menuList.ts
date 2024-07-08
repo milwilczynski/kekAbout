@@ -1,6 +1,6 @@
 export const MenuList = [
   {
-    id: 'host',
+    id: 'home',
     label: '.host()',
   },
   {
@@ -16,7 +16,7 @@ export const MenuList = [
     label: '.resume()',
   },
   {
-    id: 'email',
+    id: 'contact',
     label: '.email()',
   },
 ];
