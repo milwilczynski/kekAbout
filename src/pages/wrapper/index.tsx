@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './wrapper.module.scss';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { Console } from '~/components/console';
@@ -26,9 +26,9 @@ export const Wrapper = (props: WrapperProps) => {
     restDelta: 0.001,
   });
 
-  useEffect(() => {
+  /*  useEffect(() => {
     navigation.home.action();
-  }, []);
+  }, []); */
 
   return (
     <>

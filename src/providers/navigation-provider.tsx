@@ -17,62 +17,32 @@ const useNavigation = () => {
     home: {
       label: '.home()',
       id: 'home',
-      action: () => {
-        //terminal.position.maximize();
-        terminal.state.doAction('_initHome()', () => {
-          refs.home.current?.scrollIntoView({ behavior: 'smooth' });
-          //setTimeout(terminal.position.minimalize, HIDE_TERMINAL_AFTER);
-        });
-      },
       ref: refs.home,
+      methodName: '_initHome()',
     },
     about: {
       label: '.about()',
       id: 'about',
-      action: () => {
-        //terminal.position.maximize();
-        terminal.state.doAction('_initAbout()', () => {
-          refs.about.current?.scrollIntoView({ behavior: 'smooth' });
-          //setTimeout(terminal.position.minimalize, HIDE_TERMINAL_AFTER);
-        });
-      },
       ref: refs.about,
+      methodName: '_initAbout()',
     },
     portfolio: {
       label: '.portfolio()',
       id: 'portfolio',
-      action: () => {
-        //terminal.position.maximize();
-        terminal.state.doAction('_initPortfolio()', () => {
-          refs.portfolio.current?.scrollIntoView({ behavior: 'smooth' });
-          // setTimeout(terminal.position.minimalize, HIDE_TERMINAL_AFTER);
-        });
-      },
       ref: refs.portfolio,
+      methodName: '_initPortfolio()',
     },
     resume: {
       label: '.resume()',
       id: 'resume',
-      action: () => {
-        //terminal.position.maximize();
-        terminal.state.doAction('_initResume()', () => {
-          refs.resume.current?.scrollIntoView({ behavior: 'smooth' });
-          //setTimeout(terminal.position.minimalize, HIDE_TERMINAL_AFTER);
-        });
-      },
       ref: refs.resume,
+      methodName: '_initResume()',
     },
     contact: {
       label: '.contact()',
       id: 'contact',
-      action: () => {
-        //terminal.position.maximize();
-        terminal.state.doAction('_initContact()', () => {
-          refs.contact.current?.scrollIntoView({ behavior: 'smooth' });
-          //setTimeout(terminal.position.minimalize, HIDE_TERMINAL_AFTER);
-        });
-      },
       ref: refs.contact,
+      methodName: '_initContact()',
     },
   };
 

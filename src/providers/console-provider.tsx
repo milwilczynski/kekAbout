@@ -67,9 +67,6 @@ export const ConsoleProvider: FC<PropsWithChildren<ConsoleProviderProps>> = ({
     ready && playAnimation();
   }, [ready, action]);
 
-  useEffect(() => {
-    console.log('reverse sie zmienil byczku');
-  }, [reverse]);
   const value = useMemo(() => {
     return {
       state: { doAction, text, consoleRef },

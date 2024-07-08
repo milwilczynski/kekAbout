@@ -2,6 +2,7 @@ import React, { FC, PropsWithChildren } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import styles from './navigation.module.scss';
 import { useNavigationContext } from '~/providers/contexts/navigation-context';
+import { useConsoleContext } from '~/providers/contexts/console-context';
 
 interface NavigationProps {
   progressBar: React.ReactNode;
@@ -10,6 +11,7 @@ interface NavigationProps {
 export const Navigation: FC<PropsWithChildren<NavigationProps>> = ({
   progressBar,
 }: NavigationProps) => {
+  const terminal = useConsoleContext();
   const { navigation } = useNavigationContext();
 
   return (
@@ -23,7 +25,13 @@ export const Navigation: FC<PropsWithChildren<NavigationProps>> = ({
                 key={item.id}
                 role="presentation"
                 className={`${styles.navigation_btn}`}
-                onClick={item.action}
+                onClick={() => {
+                  terminal.state.doAction(item.methodName, () => {
+                    navigation[
+                      item.id as keyof typeof navigation
+                    ].ref.current?.scrollIntoView({ behavior: 'smooth' });
+                  });
+                }}
               >
                 <div>{item.label}</div>
               </motion.div>
