@@ -1,8 +1,8 @@
-import React from 'react';
-import { Wrapper } from '~/pages/wrapper';
+import React from 'react'
+import { Wrapper } from '~/pages/wrapper'
 
 function App() {
-  return <Wrapper />;
+  return <Wrapper />
 }
 
-export default App;
+export default App

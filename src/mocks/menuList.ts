@@ -17,6 +17,6 @@ export const MenuList = [
   },
   {
     id: 'contact',
-    label: '.email()',
+    label: '.contact()',
   },
-];
+]
